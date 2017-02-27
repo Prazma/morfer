@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Morfer</title>
+		<meta name="viewport" content="width=device-width, user-scalable=no">
+		<meta charset="utf-8">
+		<meta name="author" content="Tomoyoshi Yamamoto">
+		<meta name="description" content="Create animated image for displaying multiple images beutifully">
+		<style>
+			body {
+				text-align: center;
+				background-color: #d0d0d0;
+				padding: 15px;
+			}
+			#AniTar {
+				background-color: #4e4e4e;
+				height: 20px;
+				width: 200px;
+				margin-right: auto;
+				margin-left: auto;
+				border-radius: 4px;
+				margin-top: 20px;
+				margin-bottom: 20px;
+				transition: 0.5s;
+				-webkit-transition: 0.5s;
+			}
+			.fileContainer {
+    				overflow: hidden;
+    				display: block;
+    				font-size: 15px;
+    				position: relative;
+    				margin-right: auto;
+    				margin-left: auto;
+    				width: 90%;
+				color: white;
+				font-family: sans-serif;
+				padding: 10px 10px 10px;
+    				border-width: 1px;
+    				background-color: #08e869;
+				max-width: 200px;
+				border-radius: 7px;
+				box-shadow: 0px 0px 5px #08e869;
+			}
+			.fileContainer [type=file] {
+    				cursor: inherit;
+    				display: block;
+    				font-size: 999px;
+    				filter: alpha(opacity=0);
+    				min-height: 100%;
+    				min-width: 100%;
+    				opacity: 0;
+    				position: absolute;
+    				right: 0;
+    				text-align: right;
+    				top: 0;
+			}
+			#AniBase {
+				background-color: #4e4e4e;
+				opacity: 0.9;
+				max-width: 500px;
+				width: 85%;
+				margin-left: auto;
+				margin-right: auto;
+				padding: 5px 15px 15px 15px;
+				border-radius: 7px;
+				box-shadow: 0px 0px 8px #888888;
+			}
+			#AniSheet {
+				height: 100%;
+				width: 100%;
+			}
+			p {
+				color: white;
+				font-family: sans-serif;
+			}
+			.btnnav {
+				background: #4e4e4e;
+				color: white;
+				border: none;
+				font-family: sans-serif;
+				font-size: 25px;
+				outline: none;
+				margin-right: 10px;
+				margin-left: 10px;
+				transition: 0.4s;
+				-webkit-transition: 0.4s;
+			}
+			.btnnav:hover {
+				background: #4e4e4e;
+				color: #08e869;
+				text-shadow: 0px 0px 3px #08e869;
+				border: none;
+				font-family: sans-serif;
+				font-size: 25px;
+				outline: none;
+				margin-right: 10px;
+				margin-left: 10px;
+			}
+		</style>
+	</head>
+	<body onload="upd()">
+		<div id="AniBase">
+			<div id="AniTar">
+				<p id="AniBle">Upload Images</p>
+				<canvas id="AniSheet" style="display: none;"></canvas>
+			</div>
+			<button id="navBa" class="btnnav" style="display: none;">＜</button>
+			<button id="navFo" class="btnnav" style="display: none;">＞</button>
+			<label class="fileContainer">
+				Browse Image
+				<input id="file" type="file" accept="image/*" onchange="AniDate()">
+			</label>
+			<button id="btnCan" class="btnnav" style="display: none;" onclick="AniDe()">Cancel</button>
+			<script>
+				function upd() {
+					document.title.innerHTML = "Morfer";
+				}
+				const tar = document.getElementById("AniTar");
+				const ble = document.getElementById("AniBle");
+				const shet = document.getElementById("AniSheet");
+				const navB = document.getElementById("navBa");
+				const navF = document.getElementById("navFo");
+				const can = document.getElementById("btnCan");
+				function AniDate() {
+					tar.style.height = "150px";
+					tar.style.width = "150px";
+					tar.style.background = "#262626";
+					ble.style.display = "none";
+					shet.style.display = "";
+					navB.style.display = "";
+					navF.style.display = "";
+					can.style.display = "";
+				}
+				function AniDe() {
+					tar.style.height = "20px";
+					tar.style.width = "200px";
+					tar.style.background = "#4e4e4e";
+					ble.style.display = "";
+					shet.style.display = "none";
+					navB.style.display = "none";
+					navF.style.display = "none";
+					can.style.display = "none";
+				}
+			</script>
+		</div>
+	</body>
+</html>
