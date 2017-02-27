@@ -11,6 +11,12 @@
 				text-align: center;
 				background-color: #d0d0d0;
 				padding: 15px;
+				-webkit-touch-callout: none;
+    				-webkit-user-select: none;
+    				-khtml-user-select: none;
+    				-moz-user-select: none;
+    				-ms-user-select: none;
+    				user-select: none;
 			}
 			#AniTar {
 				background-color: #4e4e4e;
@@ -141,6 +147,11 @@
 					navF.style.display = "none";
 					can.style.display = "none";
 				}
+				var AniFrame = document.querySelector("#AniSheet");
+				var AniContext = AniFrame.getContext("2d");
+				var AniFwidth = AniFrame.width;
+				var AniFheight = AniFrame.height;
+				//ToDO; Create main compile feature
 			</script>
 		</div>
 	</body>
